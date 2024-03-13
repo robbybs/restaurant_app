@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'dart:isolate';
 
+import 'package:flutter/cupertino.dart';
 import 'package:restaurant_app/utils/api_service.dart';
 import 'package:restaurant_app/utils/notification_helper.dart';
 
@@ -29,7 +30,7 @@ class BackgroundService {
   }
 
   static Future<void> callback() async {
-    print('Alarm fired!');
+    debugPrint('Alarm fired!');
     final NotificationHelper notificationHelper = NotificationHelper();
     var result = await ApiService().getRestaurantLists(http.Client());
     await notificationHelper.showNotification(
